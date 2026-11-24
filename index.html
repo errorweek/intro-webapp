@@ -4,9 +4,125 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>김수민 자기소개 웹앱</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color: #222; background: #fafafa; line-height: 1.7; }
+    header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #e5e5e5; z-index: 10; }
+    nav { max-width: 860px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { font-weight: 700; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 18px; font-size: 14px; }
+    nav a { color: #444; text-decoration: none; }
+    nav a:hover { color: #1a73e8; }
+    section { max-width: 860px; margin: 0 auto; padding: 56px 20px; border-bottom: 1px solid #eee; }
+    h2 { font-size: 22px; margin: 0 0 20px; }
+    #home { padding: 90px 20px 70px; }
+    #home h1 { font-size: 36px; margin: 0 0 10px; }
+    #home p { font-size: 18px; color: #555; margin: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tags span { background: #eef3fd; color: #1a56c4; padding: 4px 12px; border-radius: 14px; font-size: 14px; }
+    .card { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px 22px; margin-bottom: 14px; }
+    .card h3 { margin: 0 0 4px; font-size: 17px; }
+    .card .meta { font-size: 13px; color: #888; margin-bottom: 8px; }
+    .card p { margin: 0; font-size: 15px; }
+    dl { margin: 0; display: grid; grid-template-columns: 90px 1fr; row-gap: 8px; }
+    dt { color: #777; }
+    dd { margin: 0; }
+    a.link { color: #1a73e8; }
+    form { display: grid; gap: 10px; margin-bottom: 20px; }
+    input, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
+    textarea { min-height: 80px; resize: vertical; }
+    button { justify-self: start; padding: 9px 22px; border: 0; border-radius: 6px; background: #1a73e8; color: #fff; font: inherit; cursor: pointer; }
+    .notice { font-size: 13px; color: #888; }
+    .entry { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+    .entry b { margin-right: 8px; }
+    .entry small { color: #999; }
+    footer { text-align: center; font-size: 13px; color: #999; padding: 30px 20px; }
+  </style>
 </head>
 <body>
-  <h1>김수민 자기소개 웹앱</h1>
-  <p>S3 + CloudFront(OAC)로 배포된 페이지입니다.</p>
+  <header>
+    <nav>
+      <span class="logo">김수민</span>
+      <ul>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#contact">연락처</a></li>
+        <li><a href="#guestbook">방명록</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- S01 Home -->
+  <section id="home">
+    <h1>안녕하세요, 김수민입니다.</h1>
+    <p>클라우드와 데이터베이스를 공부하고 있습니다.</p>
+  </section>
+
+  <!-- S02 소개 -->
+  <section id="about">
+    <h2>소개</h2>
+    <dl>
+      <dt>학교</dt><dd>강원대학교</dd>
+      <dt>관심 분야</dt><dd>클라우드 아키텍처, 데이터베이스</dd>
+    </dl>
+    <div class="tags">
+      <span>AWS</span><span>S3</span><span>CloudFront</span><span>PostgreSQL</span><span>HTML/CSS/JS</span><span>Git</span>
+    </div>
+  </section>
+
+  <!-- S03 프로젝트 -->
+  <section id="projects">
+    <h2>프로젝트</h2>
+    <div class="card">
+      <h3>자기소개 웹앱</h3>
+      <div class="meta">2026.11 ~ 진행 중 · 개인 · 클라우드데이터베이스 수업</div>
+      <p>S3와 CloudFront(OAC)로 정적 페이지를 배포하고, 방명록은 API Gateway·Lambda·RDS(PostgreSQL)로 구현할 예정입니다.</p>
+    </div>
+    <div class="card">
+      <h3>개인과외 매칭 플랫폼 아키텍처 설계</h3>
+      <div class="meta">2026.11 ~ 진행 중 · 개인 · 클라우드서비스설계 수업</div>
+      <p>강사 검색, 예약·결제, 알림 기능을 가진 서비스를 서버리스 중심의 AWS 아키텍처로 설계했습니다.</p>
+    </div>
+  </section>
+
+  <!-- S04 연락처 -->
+  <section id="contact">
+    <h2>연락처</h2>
+    <dl>
+      <dt>GitHub</dt><dd><a class="link" href="https://github.com/errorweek" target="_blank">github.com/errorweek</a></dd>
+    </dl>
+  </section>
+
+  <!-- S05 방명록 -->
+  <section id="guestbook">
+    <h2>방명록</h2>
+    <form id="gbForm">
+      <input id="gbName" maxlength="20" placeholder="이름 (20자 이내)" required>
+      <textarea id="gbMsg" maxlength="200" placeholder="내용 (200자 이내)" required></textarea>
+      <button type="submit">등록</button>
+    </form>
+    <p class="notice">※ 현재는 화면 미리보기입니다. 저장 기능(API Gateway + Lambda + RDS)은 다음 단계에서 연결됩니다.</p>
+    <div id="gbList"></div>
+  </section>
+
+  <footer>© 2026 김수민 · S3 + CloudFront로 배포</footer>
+
+  <script>
+    const list = document.getElementById('gbList');
+    document.getElementById('gbForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('gbName').value.trim();
+      const msg = document.getElementById('gbMsg').value.trim();
+      if (!name || !msg) return;
+      const div = document.createElement('div');
+      div.className = 'entry';
+      const b = document.createElement('b'); b.textContent = name;
+      const small = document.createElement('small'); small.textContent = new Date().toLocaleString('ko-KR');
+      const p = document.createElement('div'); p.textContent = msg;
+      div.append(b, small, p);
+      list.prepend(div);
+      e.target.reset();
+    });
+  </script>
 </body>
 </html>
